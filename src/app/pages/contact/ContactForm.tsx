@@ -11,14 +11,47 @@ export function ContactForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-    }, 5000);
+    setIsLoading(true);
+    setError("");
+
+    try {
+      // API de Web3Forms (Reemplaza la URL anterior de PHP)
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          // IMPORTANTE: Ve a web3forms.com, pon tu correo y pega aquí tu Access Key
+          access_key: "TU_ACCESS_KEY_AQUI", 
+          subject: "Nueva Solicitud de Contacto - SeguryTech",
+          from_name: formData.name || "Usuario Web",
+          replyto: formData.email,
+          ...formData
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al enviar el formulario");
+      }
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+      }, 5000);
+    } catch (err) {
+      setError("Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.");
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -112,8 +145,13 @@ export function ContactForm() {
               className="resize-none"
             />
           </div>
-          <Button type="submit" className="w-full h-12 text-lg font-bold bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/20">
-            Enviar Solicitud
+          {error && (
+            <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-100 rounded-md">
+              {error}
+            </div>
+          )}
+          <Button type="submit" disabled={isLoading} className="w-full h-12 text-lg font-bold bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/20 disabled:opacity-70 disabled:cursor-not-allowed">
+            {isLoading ? "Enviando..." : "Enviar Solicitud"}
           </Button>
         </form>
       </CardContent>

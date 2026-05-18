@@ -59,7 +59,6 @@ export function Home() {
           <StatsSection
             items={SEGURY_FEATURES}
             variant="card"
-            showHeading={false}
           />
         </div>
       </section>

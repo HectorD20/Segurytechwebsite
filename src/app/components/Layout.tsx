@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet, ScrollRestoration } from 'react-router';
 import { Navbar } from './sections/Navbar';
 import { Footer } from './sections/Footer';
 import { MAIN_NAV_LINKS, FOOTER_SECTIONS } from './sections/navigation';
@@ -11,6 +11,7 @@ export function Layout() {
   
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 scroll-smooth">
+      <ScrollRestoration />
       <Navbar links={MAIN_NAV_LINKS} />
 
       <main id="main-content" className="flex-1">
