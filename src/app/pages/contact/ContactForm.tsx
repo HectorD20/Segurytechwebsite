@@ -29,7 +29,7 @@ export function ContactForm() {
         },
         body: JSON.stringify({
           // IMPORTANTE: Ve a web3forms.com, pon tu correo y pega aquí tu Access Key
-          access_key: "TU_ACCESS_KEY_AQUI", 
+          access_key: "4ad4261a-20da-4940-b38e-29a9d07d65e2", 
           subject: "Nueva Solicitud de Contacto - SeguryTech",
           from_name: formData.name || "Usuario Web",
           replyto: formData.email,
