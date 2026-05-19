@@ -54,22 +54,6 @@ export function ContactInfo() {
         </div>
       </div>
 
-      {/* Emergency Box */}
-      <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white shadow-xl shadow-blue-500/20 relative overflow-hidden group">
-        <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
-        <div className="relative z-10 space-y-4">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-6 h-6 text-blue-200" />
-            <h3 className="font-bold text-xl">Soporte 24/7</h3>
-          </div>
-          <p className="text-blue-100 text-sm leading-relaxed">
-            ¿Tienes una emergencia de seguridad técnica? Nuestros ingenieros de guardia están disponibles en todo momento.
-          </p>
-          <button className="w-full bg-white text-blue-700 py-3 px-4 rounded-xl font-bold hover:bg-blue-50 transition-colors">
-            Llamar a Soporte Técnico
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

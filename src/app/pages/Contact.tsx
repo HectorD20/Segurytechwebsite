@@ -54,10 +54,19 @@ export function Contact() {
             </p>
           </div>
           <div className="bg-gray-200 dark:bg-gray-800 rounded-3xl h-[450px] flex items-center justify-center border-4 border-white dark:border-gray-900 shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-gray-200 opacity-50" />
-            <p className="text-gray-400 dark:text-gray-500 font-medium relative z-10 italic">
-              [Mapa Interactivo de Ubicación - SeguryTech Central]
-            </p>
+            <iframe
+              title="Ubicación de SeguryTech"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120416.73282218414!2d-99.24357732367123!3d19.43265328243306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0026db097507%3A0x54061076265ee841!2sCiudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1716301382343!5m2!1ses!2smx"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 z-10 grayscale hover:grayscale-0 transition-all duration-700"
+            ></iframe>
+            {/* Overlay sutil para diseño */}
+            <div className="absolute inset-0 bg-blue-900/10 pointer-events-none z-20" />
           </div>
         </div>
       </section>
