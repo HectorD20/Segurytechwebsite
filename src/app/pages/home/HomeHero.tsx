@@ -30,12 +30,14 @@ export function HomeHero() {
               >
                 Solicitar Cotización
               </Link>
-              <Link
-                to="/productos"
-                className="bg-blue-600/30 backdrop-blur-sm border border-blue-400/30 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-600/50 transition-all"
+              <a
+                href="https://www.emaze.com/@aotcoffw/CATALOGO-DE-PRODUCTOS-SEGURITECH"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600/30 backdrop-blur-sm border border-blue-400/30 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-600/50 transition-all text-center inline-block"
               >
                 Ver Catálogo
-              </Link>
+              </a>
             </div>
           </div>
 
